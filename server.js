@@ -6,6 +6,9 @@ app.use(cors());
 const bodyParser = require('body-parser');
 app.use(bodyParser());
 
+var pdf = require('pdfkit');
+var fs = require('fs');
+
 app.get('/', (req, res) => {
     // res.send('Hellow fuckin express!');
     res.send({
@@ -27,7 +30,10 @@ app.get('/bad', (req, res) => {
 app.post('/download', function(req, res){
   var file = './node.pdf';
   generatePDF(req.body);
-  res.download(file); // Set disposition and send it.
+  setTimeout(function () {
+    res.download(file);
+  }, 1500)
+  // res.download('./node.pdf'); // Set disposition and send it.
 });
 
 app.listen(3000);
