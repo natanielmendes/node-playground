@@ -24,7 +24,7 @@ app.get('/bad', (req, res) => {
     });
 });
 
-app.get('/download', function(req, res){
+app.post('/download', function(req, res){
   var file = './node.pdf';
   console.log(req.body);
   generatePDF(req.body.iou);
