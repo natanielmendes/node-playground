@@ -27,7 +27,7 @@ app.get('/bad', (req, res) => {
 app.post('/download', function(req, res){
   var file = './node.pdf';
   console.log(req.body);
-  generatePDF(req.body.iou);
+  generatePDF(req.body);
   res.download(file); // Set disposition and send it.
 });
 
