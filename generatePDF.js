@@ -9,10 +9,7 @@ module.exports = {
     myDoc.font('Times-Roman')
         .fontSize(14)
         .text('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam in suscipit purus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Vivamus nec hendrerit felis. Morbi aliquam facilisis risus eu lacinia. Sed eu leo in turpis fringilla hendrerit. Ut nec accumsan nisl.',
-        width: 410,
-        align: 'justify',
-        100,
-        100);
+        100,100);
 
     myDoc.end();
   }
