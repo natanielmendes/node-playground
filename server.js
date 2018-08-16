@@ -1,7 +1,8 @@
 const express = require('express');
 const {generatePDF} = require('./generatePDF.js');
 var app = express();
-
+var cors = require('cors');
+app.use(cors());
 const bodyParser = require('body-parser');
 app.use(bodyParser());
 

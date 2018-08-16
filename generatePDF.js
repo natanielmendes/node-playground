@@ -3,6 +3,7 @@ var fs = require('fs');
 
 module.exports = {
   generatePDF:(iou) => {
+    console.log(iou);
     var myDoc = new pdf;
     myDoc.pipe(fs.createWriteStream('node' + iou.userId + '.pdf'));
     myDoc.font('Times-Roman')
