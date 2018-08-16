@@ -1,6 +1,9 @@
 const express = require('express');
-
+const {generatePDF} = require('./generatePDF.js');
 var app = express();
+
+const bodyParser = require('body-parser');
+app.use(bodyParser());
 
 app.get('/', (req, res) => {
     // res.send('Hellow fuckin express!');
@@ -22,6 +25,8 @@ app.get('/bad', (req, res) => {
 
 app.get('/download', function(req, res){
   var file = './node.pdf';
+  console.log(req.body);
+  generatePDF(req.body.iou);
   res.download(file); // Set disposition and send it.
 });
 
