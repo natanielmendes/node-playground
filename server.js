@@ -1,6 +1,13 @@
 const express = require('express');
-
+const {generatePDF} = require('./generatePDF.js');
 var app = express();
+var cors = require('cors');
+app.use(cors());
+const bodyParser = require('body-parser');
+app.use(bodyParser());
+
+var pdf = require('pdfkit');
+var fs = require('fs');
 
 app.get('/', (req, res) => {
     // res.send('Hellow fuckin express!');
@@ -20,9 +27,13 @@ app.get('/bad', (req, res) => {
     });
 });
 
-app.get('/download', function(req, res){
+app.post('/download', function(req, res){
   var file = './node.pdf';
-  res.download(file); // Set disposition and send it.
+  generatePDF(req.body);
+  setTimeout(function () {
+    res.download(file);
+  }, 1500)
+  // res.download('./node.pdf'); // Set disposition and send it.
 });
 
 app.listen(3000);
